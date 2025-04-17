@@ -1,0 +1,224 @@
+# Guardamos el contenido con íconos en un archivo .txt
+
+contenido = """
+📝 Python para Principiantes – MoureDev
+📅 Fecha: 12/04/2025
+
+---
+
+🔹 Generalidades
+
+- 🧠 Python es un lenguaje excelente para el análisis de datos.  
+- ➕ Trabaja muy bien con números.  
+- 📚 Dispone de muchas librerías populares: pandas, numpy, matplotlib, entre otras.
+
+---
+
+🛠️ Frameworks para desarrollo backend
+
+- ⚙️ Django: framework robusto y completo.  
+- 🧩 Flask: micro-framework, más ligero y flexible.  
+- ⚡ FastAPI: relativamente nuevo (desde 2018), pero ha ganado popularidad por su rendimiento, asincronía y soporte de tipado.
+
+---
+
+🔄 ¿Qué es una API?
+
+- 🌐 Una API permite la comunicación entre diferentes aplicaciones.  
+- 📲 Es la forma en que una web o app se conecta a un servidor o base de datos para intercambiar información.  
+- 🔗 Facilita la comunicación entre las diferentes capas de un sistema.
+
+---
+
+⚙️ Configuración básica
+
+- 💬 Comentarios multilínea: usar tres comillas simples o dobles.  
+- 🧾 Cadenas de texto: se definen con comillas simples ('texto') o dobles ("texto").  
+- 🧐 type(valor): devuelve el tipo de dato (ej. type("python") → <class 'str'>).
+
+---
+
+📦 Variables
+
+- 🧱 Convención: minúsculas y guiones bajos (snake_case). Ej: mi_variable  
+- 🖨️ print() acepta varios argumentos separados por comas.  
+- 🔄 str(valor): convierte un valor a string.
+
+---
+
+🧰 Funciones del sistema
+
+- 📏 len(objeto): devuelve la longitud de listas, strings, etc.
+
+---
+
+📐 Tipado de variables
+
+- 🌀 Python es de tipado débil y dinámico.  
+- ✍️ Se pueden usar anotaciones de tipo (no obligatorias):
+
+  direccion: str = "mi dirección"
+  direccion = 32  # Se permite reasignar como int
+
+---
+
+➗ Operadores
+
+- ➗ División (/): número decimal (float).  
+- 🔢 División entera (//): solo la parte entera.  
+- 🧮 Módulo (%): resto de la división.  
+- 🔺 Exponente (**): potencia.
+
+---
+
+🔘 Lógica booleana
+
+- Operadores: and, or, not  
+- 🔍 Ejemplos:
+  - False and False → False
+  - False or False → False
+  - False and True → False
+  - True or True → True
+  - True or False → True
+  - not True → False
+  - not False → True
+
+---
+
+📝 Strings
+
+- 📌 Formato con f-string:
+
+  print(f"Mi nombre es {nombre} {apellido} y mi edad es {edad}")
+
+- 📦 Desempaquetado de caracteres:
+
+  a, b, c, d, e, f = "python"
+  print(a)  # p
+  print(b)  # y
+
+- ✂️ Slicing (substrings):
+
+  cadena[1:3]  # devuelve posiciones 1 y 2
+
+- 🔁 Reverso de cadena:
+
+  cadena[::-1]
+
+- 🛠️ Métodos útiles:
+
+  - capitalize(): primera letra mayúscula  
+  - upper(): todo en mayúsculas  
+  - lower(): todo en minúsculas  
+  - isupper(): True si está en mayúsculas  
+  - isnumeric(): True si es numérico  
+  - count("t"): número de veces que aparece "t"
+"""
+
+# Guardar en archivo txt
+file_path = "/mnt/data/Python_para_principiantes.txt"
+with open(file_path, "w", encoding="utf-8") as file:
+    file.write(contenido)
+
+file_path
+
+
+
+📅 13/04/2025  
+🐍 Python es un lenguaje orientado a objetos (POO)
+
+📋 Listas
+
+- Crear una lista:
+  my_list = list()
+  my_list = []
+
+- Características:
+  - Las listas son estructuras dinámicas: permiten añadir, eliminar o modificar elementos.
+  - Son diferentes de los arrays (más inmutables y restringidos en otros lenguajes como C o Java).
+
+- Tuplas:
+  - Se crean con tuple() o con ()
+  - Ejemplo: my_tuple = tuple(), my_tuple = (1, 2, 3)
+  - count(valor): cuenta cuántas veces aparece un valor en la tupla.
+
+🔄 Desempaquetado de listas
+
+- Se puede hacer si conoces el número exacto de elementos:
+  my_list = [25, "Juan", "Pérez"]
+  age, name, surname = my_list
+
+➕ Concatenación de listas
+
+- Se pueden sumar con +
+  lista1 = [1, 2]
+  lista2 = [3, 4]
+  resultado = lista1 + lista2  # [1, 2, 3, 4]
+
+ℹ️ No existen constantes como tal en Python, pero por convención se escriben en mayúsculas:
+  PI = 3.14159
+
+✅ Métodos útiles de las listas:
+
+- append(valor): añade al final.
+- insert(pos, valor): inserta en una posición específica.
+- remove(valor): elimina el primer valor encontrado.
+- pop(): elimina y devuelve el último elemento.
+- pop(pos): elimina y devuelve el elemento en la posición indicada.
+- del lista[pos]: elimina un elemento sin retornarlo.
+- clear(): borra todos los elementos de la lista.
+- copy(): copia superficial de la lista.
+- reverse(): invierte el orden.
+- sort(): ordena (por defecto, de menor a mayor).
+
+📅 17/04/2025  
+🔒 Tuplas
+
+- Declaración:
+  my_tuple = tuple()
+  my_other_tuple = (1, 2, 3)
+
+- Inmutables: no se pueden modificar ni añadir elementos después de creadas.
+- Se pueden concatenar: new_tuple = my_tuple + my_other_tuple
+- Los slices ([inicio:fin]) funcionan como en las listas.
+- Útiles cuando necesitas datos que no deben cambiar.
+- Transformar tupla a lista: mi_lista = list(mi_tupla)
+- Se puede eliminar una tupla entera con del, pero no sus elementos individuales.
+
+🧺 Sets (Conjuntos)
+
+- Se crean con set() o con {}. ⚠️ Ojo: {} vacío es un diccionario, no un set.
+
+- Características:
+  - No tienen orden.
+  - No permiten duplicados.
+  - No se accede por índice.
+  - No admiten elementos mutables como listas dentro.
+
+- Métodos comunes:
+  - add(valor): añade un elemento.
+  - union(set2): une dos sets.
+  - difference(set2): diferencia entre sets.
+  - clear(): borra todos los elementos.
+
+🗂️ Diccionarios
+
+- Declaración:
+  my_dict = dict()
+  my_other_dict = {"clave": "valor"}
+
+- Estructura desordenada de pares clave: valor.
+  - La clave debe ser inmutable.
+  - El valor puede ser cualquier tipo.
+
+- Acceso por clave: my_dict["clave"]
+
+- Métodos y funciones útiles:
+  - del my_dict["clave"]: elimina un par clave-valor.
+  - "clave" in my_dict: comprueba si la clave existe.
+  - keys(): devuelve todas las claves.
+  - values(): devuelve todos los valores.
+  - fromkeys(iterable): crea un diccionario con esas claves y valores None por defecto.
+    claves = ["a", "b"]
+    nuevo_dict = dict.fromkeys(claves)  # {'a': None, 'b': None}
+    dict.fromkeys(claves, 0)  # {'a': 0, 'b': 0}
