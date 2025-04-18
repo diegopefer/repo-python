@@ -222,3 +222,124 @@ file_path
     claves = ["a", "b"]
     nuevo_dict = dict.fromkeys(claves)  # {'a': None, 'b': None}
     dict.fromkeys(claves, 0)  # {'a': 0, 'b': 0}
+
+
+📅 18/04/2025
+
+## 🔹 Condicionales
+
+- En Python, los condicionales permiten ejecutar código solo si se cumple una condición.
+- Se utilizan las palabras clave `if`, `elif` y `else`.
+- Si la condición del `if` es falsa, se evalúan los `elif` en orden. Si ninguno se cumple, se ejecuta el `else`.
+
+```python
+edad = 18
+
+if edad < 18:
+    print("Eres menor de edad")
+elif edad == 18:
+    print("Tienes 18 años")
+else:
+    print("Eres mayor de edad")
+```
+
+🔸 Detalles importantes a tener en cuenta:
+
+- El bloque `else` no lleva condición.
+- Los bloques deben ir indentados correctamente (por defecto 4 espacios o una tabulación).
+- Las condiciones booleanas pueden encadenarse con `and`, `or`, `not`.
+- Se pueden hacer comparaciones múltiples:  
+  `if 10 < x <= 20:` (muy común en Python).
+- Cuidado con comparar cadenas (`str`), ya que la comparación es alfabética.
+
+---
+
+## 🔁 Bucles (loops/ciclos)
+
+Permiten repetir un bloque de código varias veces.
+
+### 🔸 `while`
+
+- Ejecuta el bloque **mientras** la condición sea verdadera.
+- Si se quiere un bucle infinito, se usa `while True`.
+- Puede incluir un `else`, que se ejecuta cuando la condición ya no se cumple (raro en otros lenguajes).
+- Se puede salir del bucle con `break`.
+
+```python
+x = 0
+while x < 3:
+    print(x)
+    x += 1
+else:
+    print("Bucle terminado")
+```
+
+### 🔸 `for`
+
+- Se usa para iterar sobre una **secuencia** (listas, tuplas, strings, diccionarios, etc.).
+- Más controlado que el `while`, porque recorre un número definido de elementos.
+
+```python
+frutas = ["manzana", "plátano", "uva"]
+for fruta in frutas:
+    print(fruta)
+```
+
+🔹 En diccionarios:
+
+```python
+mi_dicc = {"a": 1, "b": 2}
+for clave in mi_dicc:
+    print(clave)  # Solo imprime la clave
+    print(mi_dicc[clave])  # Valor asociado
+```
+
+🔹 Instrucciones útiles:
+
+- `break`: termina el bucle inmediatamente.
+- `continue`: salta a la siguiente iteración sin ejecutar lo que queda.
+- `else`: (opcional) se ejecuta si el bucle termina **sin** que haya un `break`.
+
+---
+
+## 🔧 Funciones
+
+- Permiten reutilizar código y resolver tareas específicas encapsuladas.
+
+### 🔸 Definición
+
+```python
+def saludar(nombre):
+    print(f"Hola, {nombre}")
+```
+
+### 🔸 Llamado
+
+```python
+saludar("Ana")  # Hola, Ana
+```
+
+🔹 Características:
+
+- Se define con `def nombre_funcion(parámetros):`
+- Se puede devolver un valor con `return`.
+- Se pueden pasar parámetros por nombre en cualquier orden:
+  
+  ```python
+  def mostrar_info(nombre, edad):
+      print(f"{nombre} tiene {edad} años")
+
+  mostrar_info(edad=25, nombre="Luis")
+  ```
+
+- Se pueden usar parámetros variables:
+
+```python
+def sumar_todo(*numeros):
+    total = 0
+    for n in numeros:
+        total += n
+    return total
+
+print(sumar_todo(1, 2, 3))  # 6
+```
