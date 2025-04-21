@@ -1,10 +1,8 @@
-# Guardamos el contenido con íconos en un archivo .txt
+CURSO NIVEL PRINCIPIANTE
 
-contenido = """
-📝 Python para Principiantes – MoureDev
+
 📅 Fecha: 12/04/2025
 
----
 
 🔹 Generalidades
 
@@ -332,7 +330,7 @@ saludar("Ana")  # Hola, Ana
   mostrar_info(edad=25, nombre="Luis")
   ```
 
-- Se pueden usar parámetros variables:
+- Se pueden usar parámetros variables con * nombre_variable (es un tipo de dato "tupla")
 
 ```python
 def sumar_todo(*numeros):
@@ -343,3 +341,147 @@ def sumar_todo(*numeros):
 
 print(sumar_todo(1, 2, 3))  # 6
 ```
+
+
+
+📆 19/4/2024
+
+🔹 CLASES
+
+- Todo lo que pertenece a una clase debe responder a una lógica específica relacionada con su entidad. Ej: una clase Person puede tener métodos como dormir(), andar(), etc.
+- El objetivo es identificar nuestro código dentro de un ámbito de actuación (abstracción).
+- Las clases se definen con la palabra clave `class` y, por buenas prácticas, se nombran en CamelCase.
+
+class MyPerson:
+    pass
+
+- El `pass` se usa para dejar un bloque vacío sin que genere error.
+- Podemos imprimir una clase o una instancia de ella:
+
+print(MyPerson)      # Muestra que es una clase
+print(MyPerson())    # Muestra que es una instancia
+
+- `__init__(self)`: es el constructor, se ejecuta al crear una instancia. `self` hace referencia al objeto que se está creando.
+- Es mala práctica mezclar funciones sueltas y clases en un mismo archivo grande. Se recomienda modularizar.
+
+🔒 VARIABLES PRIVADAS
+
+- Las variables privadas en Python no son verdaderamente privadas, pero se nombran con doble guion bajo `__`.
+
+class Persona:
+    def __init__(self, nombre):
+        self.nombre = nombre           # pública
+        self.__edad = 30               # privada
+
+    def get_edad(self):
+        return self.__edad
+
+persona = Persona("Diego")
+print(persona.nombre)
+print(persona.get_edad())  # Correcto
+
+🔹 EXCEPCIONES
+
+- Sirven para manejar errores que de otro modo harían que el programa se detenga inesperadamente.
+- Uso básico:
+
+try:
+    resultado = 10 / 0
+except ZeroDivisionError:
+    print("No se puede dividir entre cero.")
+
+- Estructura completa:
+
+try:
+    x = int("hola")
+except ValueError as e:
+    print("Error de valor:", e)
+else:
+    print("Todo salió bien.")
+finally:
+    print("Esto se ejecuta siempre.")
+
+- `else`: se ejecuta si no hay error.
+- `finally`: se ejecuta siempre, ocurra error o no.
+- Puedes capturar errores específicos usando `except TipoDeError as variable`.
+
+🔹 MÓDULOS
+
+- Un módulo es cualquier archivo `.py` con funciones, clases o variables reutilizables.
+- Ideal para mantener el código organizado y escalable.
+
+# archivo: herramientas.py
+def saludar():
+    print("Hola desde otro archivo")
+
+# archivo principal
+import herramientas
+herramientas.saludar()
+
+- También puedes importar solo lo necesario:
+
+from math import sqrt, pi
+print(sqrt(16), pi)
+
+- Python incluye módulos por defecto como `math`, `random`, `datetime`, etc.
+
+📆 21/4/2024 
+
+CURSO NIVEL INTERMEDIO
+
+🔹 FECHAS (datetime)
+
+from datetime import datetime, date, time, timedelta
+
+ahora = datetime.now()
+hoy = date.today()
+hora = time(14, 30)
+maniana = hoy + timedelta(days=1)
+
+- datetime: representa fecha y hora.
+- date: solo fecha.
+- time: solo hora.
+- timedelta: operaciones con fechas.
+- Solo se pueden restar objetos del mismo tipo (date - date, datetime - datetime).
+- timestamp(): devuelve formato POSIX (segundos desde 1/1/1970).
+
+🔹 LIST COMPREHENSION
+
+Forma compacta de crear listas.
+
+cuadrados = [x**2 for x in range(5)]
+pares = [x for x in range(10) if x % 2 == 0]
+
+🔹 LAMBDAS
+
+Funciones anónimas de una sola línea.
+
+sumar = lambda a, b: a + b
+print(sumar(3, 5))
+
+🔹 FUNCIONES DE ORDEN SUPERIOR
+
+Funciones que reciben otras funciones como parámetro.
+
+map():
+numeros = [1, 2, 3]
+dobles = list(map(lambda x: x * 2, numeros))
+
+filter():
+pares = list(filter(lambda x: x % 2 == 0, numeros))
+
+reduce():
+from functools import reduce
+suma = reduce(lambda x, y: x + y, numeros)
+
+🔹 CLOSURES
+
+Funciones internas que recuerdan el estado del entorno donde fueron creadas.
+
+def saludar(nombre):
+    def mensaje():
+        return f"Hola, {nombre}"
+    return mensaje
+
+saludo = saludar("Diego")
+print(saludo())  # Hola, Diego
