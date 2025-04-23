@@ -1,10 +1,10 @@
-# Curso de Python – Basado en el Plan de MoureDev
+# Curso de Python – MoureDev
 
 Este repositorio contiene mi progreso personal siguiendo el curso de Python de [MoureDev](https://github.com/mouredev/Hello-Python).
 
 ## 📌 Objetivo
 
-Reforzar mis conocimientos en Python desde lo básico hasta nivel intermedio, practicando con ejercicios semanales y aplicando buenas prácticas de programación.
+Reforzar mis conocimientos en Python desde lo básico hasta nivel intermedio, con ejercicios y buenas prácticas de programación.
 
 ## 🔧 Estructura del repositorio
 

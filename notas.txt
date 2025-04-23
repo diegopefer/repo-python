@@ -485,3 +485,188 @@ def saludar(nombre):
 
 saludo = saludar("Diego")
 print(saludo())  # Hola, Diego
+
+
+
+📅 22/04/2025
+
+## 🧨 Tipos de error en Python
+
+Saber reconocer los errores comunes es clave para poder solucionarlos rápidamente. Aquí están los más frecuentes:
+
+- **`SyntaxError`**: error de sintaxis.
+  - Ejemplo: `print "Hola"` → falta paréntesis.
+  
+- **`NameError`**: usar una variable no definida.
+  - Ejemplo: `print(nombre)` sin haber definido `nombre`.
+
+- **`IndexError`**: acceder a una posición inexistente en una lista.
+  - Ejemplo: `lista = [1, 2]; lista[5]`
+
+- **`ModuleNotFoundError`**: importar un módulo que no existe.
+  - Ejemplo: `import jason` en vez de `import json`.
+
+- **`AttributeError`**: acceder a una propiedad que no pertenece al objeto.
+  - Ejemplo: `"texto".append("a")` → `.append()` no existe para `str`.
+
+- **`KeyError`**: acceder a una clave no existente en un diccionario.
+  - Ejemplo: `dic = {}; dic["clave"]`
+
+- **`TypeError`**: operación con tipos de datos incompatibles.
+  - Ejemplo: `["a", "b"] + 3` → no se puede sumar lista y entero.
+
+- **`ImportError`**: error al importar algo que no está en un módulo.
+  - Ejemplo: `from math import PI` (debe ser `pi` minúscula).
+
+- **`ValueError`**: valor no apropiado para una operación.
+  - Ejemplo: `int("10 años")`
+
+- **`ZeroDivisionError`**: intento de división entre cero.
+  - Ejemplo: `5 / 0`
+
+## 📂 Manejo de ficheros
+
+Python permite trabajar con distintos tipos de archivos de forma sencilla.
+
+### 📄 Archivos `.txt`
+
+- Usar `with open("archivo.txt", "r+") as f:` es preferible a `open()` porque cierra el archivo automáticamente.
+- Métodos útiles:
+  - `read()`: lee todo el contenido.
+  - `readlines()`: devuelve una lista con cada línea del archivo.
+
+```python
+with open("ejemplo.txt", "r") as f:
+    lineas = f.readlines()
+    print(lineas)
+```
+
+### 🔗 Archivos `.json`
+
+- JSON es ideal para intercambiar datos (común en APIs).
+- Se usa como un diccionario en Python.
+
+```python
+import json
+
+datos = {"nombre": "Ana", "edad": 30}
+# Guardar
+with open("datos.json", "w") as f:
+    json.dump(datos, f)
+
+# Leer
+with open("datos.json", "r") as f:
+    datos_cargados = json.load(f)
+    print(datos_cargados)
+```
+
+### 📊 Archivos `.csv`
+
+- Se usa `csv.reader` y `csv.writer` para leer y escribir.
+- Cada línea del archivo es una lista.
+
+```python
+import csv
+
+# Escribir
+with open("datos.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Nombre", "Edad"])
+    writer.writerow(["Carlos", 25])
+
+# Leer
+with open("datos.csv", "r") as f:
+    reader = csv.reader(f)
+    for fila in reader:
+        print(fila)
+```
+
+### 📈 Archivos `.xlsx`
+
+- Se necesita instalar una librería como `openpyxl` o `pandas`.
+
+```bash
+pip install openpyxl
+```
+
+```python
+from openpyxl import Workbook
+
+wb = Workbook()
+ws = wb.active
+ws["A1"] = "Hola"
+ws["B1"] = 123
+wb.save("ejemplo.xlsx")
+```
+
+## 🔍 Expresiones Regulares
+
+Permiten buscar patrones en cadenas de texto. Se usa el módulo `re`.
+
+```python
+import re
+
+texto = "Mi correo es correo@gmail.com"
+resultado = re.search(r"\w+@\w+\.\w+", texto)
+if resultado:
+    print("Correo encontrado:", resultado.group())
+```
+
+### Funciones útiles
+
+- `re.match()` → busca al inicio.
+- `re.search()` → busca en todo el string.
+- `re.findall()` → devuelve todas las coincidencias.
+- `re.split()` → divide usando un patrón.
+- `re.sub()` → sustituye coincidencias.
+
+```python
+re.sub(r"[0-9]", "#", "Mi tel: 1234")  # → 'Mi tel: ####'
+```
+
+📅 23/04/2025
+
+### Validación de correo electrónico
+
+```python
+patron = r"^[\w\.-]+@[\w\.-]+\.\w{2,}$"
+email = "prueba@mail.com"
+if re.match(patron, email):
+    print("Email válido")
+```
+
+## 📦 Manejo de paquetes y librerías
+
+### 🛠 Instalar paquetes con `pip`
+
+```bash
+pip install nombre_paquete
+```
+
+### 📚 Librerías comunes
+
+- `numpy`: operaciones numéricas.
+- `pandas`: análisis y manipulación de datos.
+- `matplotlib`: gráficos.
+
+```python
+import numpy as np
+print(np.array([1, 2, 3]) * 2)
+```
+
+### 📁 Crear tus propios paquetes
+
+- Estructura:
+
+```
+mi_paquete/
+│
+├── __init__.py  # Indica que es un paquete
+├── operaciones.py
+```
+
+- Usarlo:
+
+```python
+from mi_paquete import operaciones
+```
