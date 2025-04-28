@@ -35,13 +35,14 @@ verdadero o falso (Bool) según sean o no anagramas.
 
 
 
-def es_anagrama (word1, word2):
-    if word1.lower() == word2.lower():
-        return False
+def es_anagrama(palabra1,palabra2):
     
-    return sorted(word1.lower()) == sorted(word2.lower())
+    return sorted(palabra1.lower()) == sorted(palabra2.lower())
+    
+    
+    
+print(f"¿Es anagrama? {es_anagrama("monja","jamon")}")
 
-# print(es_anagrama ("amor","roma"))
 
 
 #3 LA SUCESIÓN DE FIBONACCI
@@ -53,19 +54,22 @@ de Fibonacci empezando en 0.
   0, 1, 1, 2, 3, 5, 8, 13...
 """
 def fibonacci():
-    previo =  0
-    siguiente = 1
+    lista_fibonacci = [0,1]
+    previo = 1
+    anterior_previo = 0
     
-    for i in range(0,50):
+    for i in range(1,49):
+        suma_fibonacci = anterior_previo + previo
+        anterior_previo = previo
+        previo = suma_fibonacci
+        lista_fibonacci.append(suma_fibonacci)
         
-        if i <= 50:
-            print(i)
-            resultado_fibonacci = previo + siguiente
-            previo = siguiente
-            siguiente = resultado_fibonacci
+        
+        
+    print(lista_fibonacci)
+        
 
-
-# fibonacci()
+fibonacci()
 
 
 

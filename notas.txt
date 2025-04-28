@@ -85,6 +85,8 @@ CURSO NIVEL PRINCIPIANTE
 
 📝 Strings
 
+-  las cadenas son secuencias de caracteres, por lo que puedes iterar sobre cada carácter directamente usando un bucle for. No es necesario usar range() o índices como en otros lenguajes.
+
 - 📌 Formato con f-string:
 
   print(f"Mi nombre es {nombre} {apellido} y mi edad es {edad}")
