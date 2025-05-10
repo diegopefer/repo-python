@@ -672,3 +672,24 @@ mi_paquete/
 ```python
 from mi_paquete import operaciones
 ```
+
+
+
+10/5/2025
+🧵 threading (Hilos)
+Ejecuta funciones en paralelo (cada una en un hilo del sistema).
+
+Útil para tareas bloqueantes (como cálculos pesados o funciones que no usan await).
+
+Puede usar varios núcleos del procesador.
+
+Tiene más consumo de recursos y complejidad (cuidado con variables compartidas).
+
+⚡ asyncio (Asincronía)
+Ejecuta funciones de forma concurrente, pero en un solo hilo.
+
+Ideal para tareas con esperas (como temporizadores, peticiones de red, etc.).
+
+Más eficiente en consumo y más simple para tareas I/O.
+
+Usa await para pausar sin bloquear el programa.
