@@ -693,3 +693,39 @@ Ideal para tareas con esperas (como temporizadores, peticiones de red, etc.).
 Más eficiente en consumo y más simple para tareas I/O.
 
 Usa await para pausar sin bloquear el programa.
+
+🧠 API's
+    API (Application Programming Interface): Un sistema que permite que dos aplicaciones se comuniquen.
+
+    HTTP request: Es una solicitud que haces a un servidor. Las más comunes:
+
+    GET: obtener datos.
+
+    POST: enviar datos.
+
+    Endpoint: URL específica para acceder a una parte de la API (ej: https://pokeapi.co/api/v2/pokemon/pikachu).
+
+    JSON: Formato de texto con los datos que devuelve casi cualquier API.
+
+  🛠️ Métodos principales (con requests):
+
+  import requests
+
+  # Hacer una petición GET
+  response = requests.get("https://pokeapi.co/api/v2/pokemon/pikachu")
+
+  # Revisar si fue exitosa
+  response.status_code == 200
+
+  # Obtener los datos en formato diccionario
+  data = response.json()
+
+  # Acceder a datos concretos
+  data["name"], data["height"]
+
+  🧪 Otros métodos útiles:
+  requests.post() – para enviar datos
+
+  requests.headers – ver info adicional
+
+  response.text – si no es JSON
