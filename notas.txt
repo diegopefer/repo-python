@@ -1,0 +1,833 @@
+CURSO NIVEL PRINCIPIANTE
+
+
+📅 Fecha: 12/04/2025
+
+
+🔹 Generalidades
+
+- 🧠 Python es un lenguaje excelente para el análisis de datos.  
+- ➕ Trabaja muy bien con números.  
+- 📚 Dispone de muchas librerías populares: pandas, numpy, matplotlib, entre otras.
+
+---
+
+🛠️ Frameworks para desarrollo backend
+
+- ⚙️ Django: framework robusto y completo.  
+- 🧩 Flask: micro-framework, más ligero y flexible.  
+- ⚡ FastAPI: relativamente nuevo (desde 2018), pero ha ganado popularidad por su rendimiento, asincronía y soporte de tipado.
+
+---
+
+🔄 ¿Qué es una API?
+
+- 🌐 Una API permite la comunicación entre diferentes aplicaciones.  
+- 📲 Es la forma en que una web o app se conecta a un servidor o base de datos para intercambiar información.  
+- 🔗 Facilita la comunicación entre las diferentes capas de un sistema.
+
+---
+
+⚙️ Configuración básica
+
+- 💬 Comentarios multilínea: usar tres comillas simples o dobles.  
+- 🧾 Cadenas de texto: se definen con comillas simples ('texto') o dobles ("texto").  
+- 🧐 type(valor): devuelve el tipo de dato (ej. type("python") → <class 'str'>).
+
+---
+
+📦 Variables
+
+- 🧱 Convención: minúsculas y guiones bajos (snake_case). Ej: mi_variable  
+- 🖨️ print() acepta varios argumentos separados por comas.  
+- 🔄 str(valor): convierte un valor a string.
+
+---
+
+🧰 Funciones del sistema
+
+- 📏 len(objeto): devuelve la longitud de listas, strings, etc.
+
+---
+
+📐 Tipado de variables
+
+- 🌀 Python es de tipado débil y dinámico.  
+- ✍️ Se pueden usar anotaciones de tipo (no obligatorias):
+
+  direccion: str = "mi dirección"
+  direccion = 32  # Se permite reasignar como int
+
+---
+
+➗ Operadores
+
+- ➗ División (/): número decimal (float).  
+- 🔢 División entera (//): solo la parte entera.  
+- 🧮 Módulo (%): resto de la división.  
+- 🔺 Exponente (**): potencia.
+
+---
+
+🔘 Lógica booleana
+
+- Operadores: and, or, not  
+- 🔍 Ejemplos:
+  - False and False → False
+  - False or False → False
+  - False and True → False
+  - True or True → True
+  - True or False → True
+  - not True → False
+  - not False → True
+
+---
+
+📝 Strings
+
+-  las cadenas son secuencias de caracteres, por lo que puedes iterar sobre cada carácter directamente usando un bucle for. No es necesario usar range() o índices como en otros lenguajes.
+
+- 📌 Formato con f-string:
+
+  print(f"Mi nombre es {nombre} {apellido} y mi edad es {edad}")
+
+- 📦 Desempaquetado de caracteres:
+
+  a, b, c, d, e, f = "python"
+  print(a)  # p
+  print(b)  # y
+
+- ✂️ Slicing (substrings):
+
+  cadena[1:3]  # devuelve posiciones 1 y 2
+
+- 🔁 Reverso de cadena:
+
+  cadena[::-1]
+
+- 🛠️ Métodos útiles:
+
+  - capitalize(): primera letra mayúscula  
+  - upper(): todo en mayúsculas  
+  - lower(): todo en minúsculas  
+  - isupper(): True si está en mayúsculas  
+  - isnumeric(): True si es numérico  
+  - count("t"): número de veces que aparece "t"
+"""
+
+# Guardar en archivo txt
+file_path = "/mnt/data/Python_para_principiantes.txt"
+with open(file_path, "w", encoding="utf-8") as file:
+    file.write(contenido)
+
+file_path
+
+
+
+📅 13/04/2025  
+🐍 Python es un lenguaje orientado a objetos (POO)
+
+📋 Listas
+
+- Crear una lista:
+  my_list = list()
+  my_list = []
+
+- Características:
+  - Las listas son estructuras dinámicas: permiten añadir, eliminar o modificar elementos.
+  - Son diferentes de los arrays (más inmutables y restringidos en otros lenguajes como C o Java).
+
+- Tuplas:
+  - Se crean con tuple() o con ()
+  - Ejemplo: my_tuple = tuple(), my_tuple = (1, 2, 3)
+  - count(valor): cuenta cuántas veces aparece un valor en la tupla.
+
+🔄 Desempaquetado de listas
+
+- Se puede hacer si conoces el número exacto de elementos:
+  my_list = [25, "Juan", "Pérez"]
+  age, name, surname = my_list
+
+➕ Concatenación de listas
+
+- Se pueden sumar con +
+  lista1 = [1, 2]
+  lista2 = [3, 4]
+  resultado = lista1 + lista2  # [1, 2, 3, 4]
+
+ℹ️ No existen constantes como tal en Python, pero por convención se escriben en mayúsculas:
+  PI = 3.14159
+
+✅ Métodos útiles de las listas:
+
+- append(valor): añade al final.
+- insert(pos, valor): inserta en una posición específica.
+- remove(valor): elimina el primer valor encontrado.
+- pop(): elimina y devuelve el último elemento.
+- pop(pos): elimina y devuelve el elemento en la posición indicada.
+- del lista[pos]: elimina un elemento sin retornarlo.
+- clear(): borra todos los elementos de la lista.
+- copy(): copia superficial de la lista.
+- reverse(): invierte el orden.
+- sort(): ordena (por defecto, de menor a mayor).
+
+📅 17/04/2025  
+🔒 Tuplas
+
+- Declaración:
+  my_tuple = tuple()
+  my_other_tuple = (1, 2, 3)
+
+- Inmutables: no se pueden modificar ni añadir elementos después de creadas.
+- Se pueden concatenar: new_tuple = my_tuple + my_other_tuple
+- Los slices ([inicio:fin]) funcionan como en las listas.
+- Útiles cuando necesitas datos que no deben cambiar.
+- Transformar tupla a lista: mi_lista = list(mi_tupla)
+- Se puede eliminar una tupla entera con del, pero no sus elementos individuales.
+
+🧺 Sets (Conjuntos)
+
+- Se crean con set() o con {}. ⚠️ Ojo: {} vacío es un diccionario, no un set.
+
+- Características:
+  - No tienen orden.
+  - No permiten duplicados.
+  - No se accede por índice.
+  - No admiten elementos mutables como listas dentro.
+
+- Métodos comunes:
+  - add(valor): añade un elemento.
+  - union(set2): une dos sets.
+  - difference(set2): diferencia entre sets.
+  - clear(): borra todos los elementos.
+
+🗂️ Diccionarios
+
+- Declaración:
+  my_dict = dict()
+  my_other_dict = {"clave": "valor"}
+
+- Estructura desordenada de pares clave: valor.
+  - La clave debe ser inmutable.
+  - El valor puede ser cualquier tipo.
+
+- Acceso por clave: my_dict["clave"]
+
+- Métodos y funciones útiles:
+  - del my_dict["clave"]: elimina un par clave-valor.
+  - "clave" in my_dict: comprueba si la clave existe.
+  - keys(): devuelve todas las claves.
+  - values(): devuelve todos los valores.
+  - fromkeys(iterable): crea un diccionario con esas claves y valores None por defecto.
+    claves = ["a", "b"]
+    nuevo_dict = dict.fromkeys(claves)  # {'a': None, 'b': None}
+    dict.fromkeys(claves, 0)  # {'a': 0, 'b': 0}
+
+
+📅 18/04/2025
+
+## 🔹 Condicionales
+
+- En Python, los condicionales permiten ejecutar código solo si se cumple una condición.
+- Se utilizan las palabras clave `if`, `elif` y `else`.
+- Si la condición del `if` es falsa, se evalúan los `elif` en orden. Si ninguno se cumple, se ejecuta el `else`.
+
+```python
+edad = 18
+
+if edad < 18:
+    print("Eres menor de edad")
+elif edad == 18:
+    print("Tienes 18 años")
+else:
+    print("Eres mayor de edad")
+```
+
+🔸 Detalles importantes a tener en cuenta:
+
+- El bloque `else` no lleva condición.
+- Los bloques deben ir indentados correctamente (por defecto 4 espacios o una tabulación).
+- Las condiciones booleanas pueden encadenarse con `and`, `or`, `not`.
+- Se pueden hacer comparaciones múltiples:  
+  `if 10 < x <= 20:` (muy común en Python).
+- Cuidado con comparar cadenas (`str`), ya que la comparación es alfabética.
+
+---
+
+## 🔁 Bucles (loops/ciclos)
+
+Permiten repetir un bloque de código varias veces.
+
+### 🔸 `while`
+
+- Ejecuta el bloque **mientras** la condición sea verdadera.
+- Si se quiere un bucle infinito, se usa `while True`.
+- Puede incluir un `else`, que se ejecuta cuando la condición ya no se cumple (raro en otros lenguajes).
+- Se puede salir del bucle con `break`.
+
+```python
+x = 0
+while x < 3:
+    print(x)
+    x += 1
+else:
+    print("Bucle terminado")
+```
+
+### 🔸 `for`
+
+- Se usa para iterar sobre una **secuencia** (listas, tuplas, strings, diccionarios, etc.).
+- Más controlado que el `while`, porque recorre un número definido de elementos.
+
+```python
+frutas = ["manzana", "plátano", "uva"]
+for fruta in frutas:
+    print(fruta)
+```
+
+🔹 En diccionarios:
+
+```python
+mi_dicc = {"a": 1, "b": 2}
+for clave in mi_dicc:
+    print(clave)  # Solo imprime la clave
+    print(mi_dicc[clave])  # Valor asociado
+```
+
+🔹 Instrucciones útiles:
+
+- `break`: termina el bucle inmediatamente.
+- `continue`: salta a la siguiente iteración sin ejecutar lo que queda.
+- `else`: (opcional) se ejecuta si el bucle termina **sin** que haya un `break`.
+
+---
+
+## 🔧 Funciones
+
+- Permiten reutilizar código y resolver tareas específicas encapsuladas.
+
+### 🔸 Definición
+
+```python
+def saludar(nombre):
+    print(f"Hola, {nombre}")
+```
+
+### 🔸 Llamado
+
+```python
+saludar("Ana")  # Hola, Ana
+```
+
+🔹 Características:
+
+- Se define con `def nombre_funcion(parámetros):`
+- Se puede devolver un valor con `return`.
+- Se pueden pasar parámetros por nombre en cualquier orden:
+  
+  ```python
+  def mostrar_info(nombre, edad):
+      print(f"{nombre} tiene {edad} años")
+
+  mostrar_info(edad=25, nombre="Luis")
+  ```
+
+- Se pueden usar parámetros variables con * nombre_variable (es un tipo de dato "tupla")
+
+```python
+def sumar_todo(*numeros):
+    total = 0
+    for n in numeros:
+        total += n
+    return total
+
+print(sumar_todo(1, 2, 3))  # 6
+```
+
+
+
+📆 19/4/2024
+
+🔹 CLASES
+
+- Todo lo que pertenece a una clase debe responder a una lógica específica relacionada con su entidad. Ej: una clase Person puede tener métodos como dormir(), andar(), etc.
+- El objetivo es identificar nuestro código dentro de un ámbito de actuación (abstracción).
+- Las clases se definen con la palabra clave `class` y, por buenas prácticas, se nombran en CamelCase.
+
+class MyPerson:
+    pass
+
+- El `pass` se usa para dejar un bloque vacío sin que genere error.
+- Podemos imprimir una clase o una instancia de ella:
+
+print(MyPerson)      # Muestra que es una clase
+print(MyPerson())    # Muestra que es una instancia
+
+- `__init__(self)`: es el constructor, se ejecuta al crear una instancia. `self` hace referencia al objeto que se está creando.
+- Es mala práctica mezclar funciones sueltas y clases en un mismo archivo grande. Se recomienda modularizar.
+
+🔒 VARIABLES PRIVADAS
+
+- Las variables privadas en Python no son verdaderamente privadas, pero se nombran con doble guion bajo `__`.
+
+class Persona:
+    def __init__(self, nombre):
+        self.nombre = nombre           # pública
+        self.__edad = 30               # privada
+
+    def get_edad(self):
+        return self.__edad
+
+persona = Persona("Diego")
+print(persona.nombre)
+print(persona.get_edad())  # Correcto
+
+🔹 EXCEPCIONES
+
+- Sirven para manejar errores que de otro modo harían que el programa se detenga inesperadamente.
+- Uso básico:
+
+try:
+    resultado = 10 / 0
+except ZeroDivisionError:
+    print("No se puede dividir entre cero.")
+
+- Estructura completa:
+
+try:
+    x = int("hola")
+except ValueError as e:
+    print("Error de valor:", e)
+else:
+    print("Todo salió bien.")
+finally:
+    print("Esto se ejecuta siempre.")
+
+- `else`: se ejecuta si no hay error.
+- `finally`: se ejecuta siempre, ocurra error o no.
+- Puedes capturar errores específicos usando `except TipoDeError as variable`.
+
+🔹 MÓDULOS
+
+- Un módulo es cualquier archivo `.py` con funciones, clases o variables reutilizables.
+- Ideal para mantener el código organizado y escalable.
+
+# archivo: herramientas.py
+def saludar():
+    print("Hola desde otro archivo")
+
+# archivo principal
+import herramientas
+herramientas.saludar()
+
+- También puedes importar solo lo necesario:
+
+from math import sqrt, pi
+print(sqrt(16), pi)
+
+- Python incluye módulos por defecto como `math`, `random`, `datetime`, etc.
+
+📆 21/4/2024 
+
+CURSO NIVEL INTERMEDIO
+
+🔹 FECHAS (datetime)
+
+from datetime import datetime, date, time, timedelta
+
+ahora = datetime.now()
+hoy = date.today()
+hora = time(14, 30)
+maniana = hoy + timedelta(days=1)
+
+- datetime: representa fecha y hora.
+- date: solo fecha.
+- time: solo hora.
+- timedelta: operaciones con fechas.
+- Solo se pueden restar objetos del mismo tipo (date - date, datetime - datetime).
+- timestamp(): devuelve formato POSIX (segundos desde 1/1/1970).
+
+🔹 LIST COMPREHENSION
+
+Forma compacta de crear listas.
+
+cuadrados = [x**2 for x in range(5)]
+pares = [x for x in range(10) if x % 2 == 0]
+
+🔹 LAMBDAS
+
+Funciones anónimas de una sola línea.
+
+sumar = lambda a, b: a + b
+print(sumar(3, 5))
+
+🔹 FUNCIONES DE ORDEN SUPERIOR
+
+Funciones que reciben otras funciones como parámetro.
+
+map():
+numeros = [1, 2, 3]
+dobles = list(map(lambda x: x * 2, numeros))
+
+filter():
+pares = list(filter(lambda x: x % 2 == 0, numeros))
+
+reduce():
+from functools import reduce
+suma = reduce(lambda x, y: x + y, numeros)
+
+🔹 CLOSURES
+
+Funciones internas que recuerdan el estado del entorno donde fueron creadas.
+
+def saludar(nombre):
+    def mensaje():
+        return f"Hola, {nombre}"
+    return mensaje
+
+saludo = saludar("Diego")
+print(saludo())  # Hola, Diego
+
+
+
+📅 22/04/2025
+
+## 🧨 Tipos de error en Python
+
+Saber reconocer los errores comunes es clave para poder solucionarlos rápidamente. Aquí están los más frecuentes:
+
+- **`SyntaxError`**: error de sintaxis.
+  - Ejemplo: `print "Hola"` → falta paréntesis.
+  
+- **`NameError`**: usar una variable no definida.
+  - Ejemplo: `print(nombre)` sin haber definido `nombre`.
+
+- **`IndexError`**: acceder a una posición inexistente en una lista.
+  - Ejemplo: `lista = [1, 2]; lista[5]`
+
+- **`ModuleNotFoundError`**: importar un módulo que no existe.
+  - Ejemplo: `import jason` en vez de `import json`.
+
+- **`AttributeError`**: acceder a una propiedad que no pertenece al objeto.
+  - Ejemplo: `"texto".append("a")` → `.append()` no existe para `str`.
+
+- **`KeyError`**: acceder a una clave no existente en un diccionario.
+  - Ejemplo: `dic = {}; dic["clave"]`
+
+- **`TypeError`**: operación con tipos de datos incompatibles.
+  - Ejemplo: `["a", "b"] + 3` → no se puede sumar lista y entero.
+
+- **`ImportError`**: error al importar algo que no está en un módulo.
+  - Ejemplo: `from math import PI` (debe ser `pi` minúscula).
+
+- **`ValueError`**: valor no apropiado para una operación.
+  - Ejemplo: `int("10 años")`
+
+- **`ZeroDivisionError`**: intento de división entre cero.
+  - Ejemplo: `5 / 0`
+
+## 📂 Manejo de ficheros
+
+Python permite trabajar con distintos tipos de archivos de forma sencilla.
+
+### 📄 Archivos `.txt`
+
+- Usar `with open("archivo.txt", "r+") as f:` es preferible a `open()` porque cierra el archivo automáticamente.
+- Métodos útiles:
+  - `read()`: lee todo el contenido.
+  - `readlines()`: devuelve una lista con cada línea del archivo.
+
+```python
+with open("ejemplo.txt", "r") as f:
+    lineas = f.readlines()
+    print(lineas)
+```
+
+### 🔗 Archivos `.json`
+
+- JSON es ideal para intercambiar datos (común en APIs).
+- Se usa como un diccionario en Python.
+
+```python
+import json
+
+datos = {"nombre": "Ana", "edad": 30}
+# Guardar
+with open("datos.json", "w") as f:
+    json.dump(datos, f)
+
+# Leer
+with open("datos.json", "r") as f:
+    datos_cargados = json.load(f)
+    print(datos_cargados)
+```
+
+### 📊 Archivos `.csv`
+
+- Se usa `csv.reader` y `csv.writer` para leer y escribir.
+- Cada línea del archivo es una lista.
+
+```python
+import csv
+
+# Escribir
+with open("datos.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Nombre", "Edad"])
+    writer.writerow(["Carlos", 25])
+
+# Leer
+with open("datos.csv", "r") as f:
+    reader = csv.reader(f)
+    for fila in reader:
+        print(fila)
+```
+
+### 📈 Archivos `.xlsx`
+
+- Se necesita instalar una librería como `openpyxl` o `pandas`.
+
+```bash
+pip install openpyxl
+```
+
+```python
+from openpyxl import Workbook
+
+wb = Workbook()
+ws = wb.active
+ws["A1"] = "Hola"
+ws["B1"] = 123
+wb.save("ejemplo.xlsx")
+```
+
+## 🔍 Expresiones Regulares
+
+Permiten buscar patrones en cadenas de texto. Se usa el módulo `re`.
+
+```python
+import re
+
+texto = "Mi correo es correo@gmail.com"
+resultado = re.search(r"\w+@\w+\.\w+", texto)
+if resultado:
+    print("Correo encontrado:", resultado.group())
+```
+
+### Funciones útiles
+
+- `re.match()` → busca al inicio.
+- `re.search()` → busca en todo el string.
+- `re.findall()` → devuelve todas las coincidencias.
+- `re.split()` → divide usando un patrón.
+- `re.sub()` → sustituye coincidencias.
+
+```python
+re.sub(r"[0-9]", "#", "Mi tel: 1234")  # → 'Mi tel: ####'
+```
+
+📅 23/04/2025
+
+### Validación de correo electrónico
+
+```python
+patron = r"^[\w\.-]+@[\w\.-]+\.\w{2,}$"
+email = "prueba@mail.com"
+if re.match(patron, email):
+    print("Email válido")
+```
+
+## 📦 Manejo de paquetes y librerías
+
+### 🛠 Instalar paquetes con `pip`
+
+```bash
+pip install nombre_paquete
+```
+
+### 📚 Librerías comunes
+
+- `numpy`: operaciones numéricas.
+- `pandas`: análisis y manipulación de datos.
+- `matplotlib`: gráficos.
+
+```python
+import numpy as np
+print(np.array([1, 2, 3]) * 2)
+```
+
+### 📁 Crear tus propios paquetes
+
+- Estructura:
+
+```
+mi_paquete/
+│
+├── __init__.py  # Indica que es un paquete
+├── operaciones.py
+```
+
+- Usarlo:
+
+```python
+from mi_paquete import operaciones
+```
+
+
+
+10/5/2025
+🧵 threading (Hilos)
+Ejecuta funciones en paralelo (cada una en un hilo del sistema).
+
+Útil para tareas bloqueantes (como cálculos pesados o funciones que no usan await).
+
+Puede usar varios núcleos del procesador.
+
+Tiene más consumo de recursos y complejidad (cuidado con variables compartidas).
+
+⚡ asyncio (Asincronía)
+Ejecuta funciones de forma concurrente, pero en un solo hilo.
+
+Ideal para tareas con esperas (como temporizadores, peticiones de red, etc.).
+
+Más eficiente en consumo y más simple para tareas I/O.
+
+Usa await para pausar sin bloquear el programa.
+
+🧠 API's
+    API (Application Programming Interface): Un sistema que permite que dos aplicaciones se comuniquen.
+
+    HTTP request: Es una solicitud que haces a un servidor. Las más comunes:
+
+    GET: obtener datos.
+
+    POST: enviar datos.
+
+    Endpoint: URL específica para acceder a una parte de la API (ej: https://pokeapi.co/api/v2/pokemon/pikachu).
+
+    JSON: Formato de texto con los datos que devuelve casi cualquier API.
+
+  🛠️ Métodos principales (con requests):
+
+  import requests
+
+  # Hacer una petición GET
+  response = requests.get("https://pokeapi.co/api/v2/pokemon/pikachu")
+
+  # Revisar si fue exitosa
+  response.status_code == 200
+
+  # Obtener los datos en formato diccionario
+  data = response.json()
+
+  # Acceder a datos concretos
+  data["name"], data["height"]
+
+  🧪 Otros métodos útiles:
+  requests.post() – para enviar datos
+
+  requests.headers – ver info adicional
+
+  response.text – si no es JSON
+
+
+
+📊 ANÁLISIS DE DATOS EN PYTHON
+
+🧰 Herramientas y librerías clave
+- Pandas → Manipulación y análisis de datos estructurados (tablas, CSVs).
+- NumPy → Cálculo numérico y manejo de arrays.
+- Matplotlib / Seaborn → Visualización de datos (gráficos de barras, líneas, histogramas, dispersión, etc.).
+- Scikit-learn (más adelante) → Machine Learning.
+
+📥 1. Carga y exploración de datos
+- pd.read_csv("archivo.csv"): carga de datos.
+- df.head(n): primeras n filas.
+- df.info(): resumen general (tipos de dato, nulos, etc.).
+- df.describe(): estadísticas básicas (media, mediana, etc.).
+- df.columns, df.shape, df.dtypes: info sobre estructura.
+
+🔍 2. Limpieza de datos
+- df.isnull().sum(): detectar valores nulos.
+- df.drop(columns=...): eliminar columnas.
+- df.dropna(), df.fillna(valor): eliminar o rellenar valores nulos.
+- df["columna"].astype(tipo): convertir tipo de dato.
+- df.dropna(subset=[col]) elimina filas con NaN en col.
+- df["col"].str.split(",") y df.explode("col") para separar y expandir listas en celdas.
+- .str.strip() limpia espacios en strings.
+- pd.to_datetime(df["col"], errors="coerce") convierte strings a fechas, errors="coerce" para NaT en errores.
+
+🎯 3. Filtrado y condiciones
+- df[df["Edad"] > 30]: condición simple filtrado filas
+- df[(cond1) & (cond2)]: múltiples condiciones.
+- df.query("Edad > 30 and Sexo == 'female'"): alternativa más legible.
+- .loc[filas, columnas] para selección avanzada y evitar advertencias.
+- .copy() para evitar modificar vistas y evitar warnings.
+
+
+📊 4. Agrupaciones y estadísticas
+- df.groupby(["col1", "col2"]) agrupa por una o más columnas.
+- .size() cuenta filas en grupos.
+- .value_counts() cuenta frecuencia de valores únicos en columna (no se usa dentro de groupby).
+- .mean(), .sum() y otros agregados para resumen numérico.
+- df.groupby("col")["otra_col"].mean(): media por grupo.
+- .sum(), .count(), .max(), .min() → funciones comunes.
+- df["col"].value_counts(): frecuencia de valores únicos.
+
+✍️ 5. Creación y modificación de columnas
+- df["nueva"] = df["A"] + df["B"]: combinación de columnas.
+- df["columna"].apply(funcion): transformación personalizada.
+- df["columna"].map(diccionario): transformación basada en mapa.
+- .str.extract(r"regex") para extraer partes de texto.
+- Conversión de tipos: .astype(int), .astype(float).
+- .drop_duplicates(subset=["col"], keep="first"/False) para eliminar duplicados.
+
+- Ordenación y orden de datos:
+  - .sort_values(by="col") para ordenar filas.
+  - .sort_index() para ordenar por índice.
+
+📈 6. Visualización de datos
+- df["col"].plot(kind="bar"), kind="hist", kind="line", etc.
+- sbn.countplot(x="col", data=df): contar categorías.
+- sbn.heatmap(df.isnull()): mapa de calor para nulos.
+- sbn.scatterplot(x="Edad", y="Fare", hue="Survived", data=df): dispersión con color por categoría.
+- Convertir series a DataFrame con .reset_index(name="col_new") para usar con seaborn o matplotlib.
+- sns.lineplot(data=df, x="xcol", y="ycol") para líneas.
+
+🧪 7. Ejercicios comunes en datasets
+- Calcular medias, proporciones, máximos/mínimos.
+- Filtrar por condiciones (menores de edad, clase social, género…).
+- Agrupar por múltiples columnas (groupby(["Clase", "Sexo"])).
+- Crear nuevas columnas como:
+  - Si es menor de edad → df["Menor"] = df["Edad"] < 18
+  - Tamaño familiar → df["FamilySize"] = df["SibSp"] + df["Parch"]
+  - Título extraído de texto → df["Titulo"] = df["Name"].str.extract(r",\s*(\w+)\.")
+
+💡 Buenas prácticas
+- Mira siempre df.info() e isnull().sum() al empezar.
+- Usa value_counts() o groupby() para entender la estructura.
+- Visualiza: un gráfico puede revelar más que 100 líneas.
+
+- Manejo de errores comunes:
+  - Warning SettingWithCopyWarning: usar .loc o .copy().
+  - Error con .str accessor: solo funciona con strings, limpiar o convertir antes.
+  - NaN y None se tratan diferente, usar pd.isna() para detectar valores nulos.
+
+
+- .idxmax() y .max() funcionan sobre Series, no DataFrames. 
+- .reset_index() transforma una Series con índice jerárquico (o agrupado) en un DataFrame plano
+
+| Método      | ¿Qué devuelve?                       |
+| ----------- | ------------------------------------ |
+| `.max()`    | El **valor máximo** (ej: 20)         |
+| `.idxmax()` | El **índice** de ese valor (ej: 'b') |
+
+
+Series vs Dataframe
+
+| Aspecto        | `Series`               | `DataFrame`                      |
+| -------------- | ---------------------- | -------------------------------- |
+| Dimensión      | 1D (una sola columna)  | 2D (múltiples columnas)          |
+| Estructura     | Índice + valores       | Índice + columnas + valores      |
+| Ejemplo acceso | `serie["a"]`           | `df["edad"]` (esto es una Serie) |
+| Conversión     | `df["col"]` → `Series` | `serie.to_frame()` → `DataFrame` |
